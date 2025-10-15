@@ -13,9 +13,8 @@ app.use(helmet());
 app.use(compression()); 
 //init db
 require('./db/init.mongodb')
-
-
-
+const check  = require('./helpers/check.connect')
+check.checkOverload()
 //init route
 app.get('/', (req,res,next) =>{
     return res.status(200).json({

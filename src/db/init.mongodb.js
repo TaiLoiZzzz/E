@@ -13,13 +13,19 @@ class Database{
         this.connect()
     }
 
+   
+
     connect(type = 'mongodb'){
         if ( 1 == 1){ //nếu ko cần debug thì chỉ cần chuyển 1 == 0 là được 
             mongoose.set('debug', true) //còn này thì là debug mod
             mongoose.set('debug',{color : true} ) //thêm màu sắc cho debug
         }
-        mongoose.connect(connectString).then(_=> {console.log(`Connected to MongoDB  `),  checkCount.countConnect()})
-        .catch(err => console.log('Error connecting to MongoDB', err))
+        mongoose.connect( connectString, {
+            maxPoolSize : 50
+        }).then(_ => {
+            console.log(`Connected to MongoDB`)
+            checkCount.countConnect()
+        }).catch(err => console.log('Error connecting to MongoDB', err))
     }
 
     static getInstance(){
