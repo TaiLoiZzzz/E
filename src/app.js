@@ -3,8 +3,8 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const compression = require('compression');
 const coutConnect = require('./helpers/check.connect');
+require('dotenv').config()
 const app = express()
-
 
 
 //init middlexwares

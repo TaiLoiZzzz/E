@@ -1,7 +1,8 @@
 const app = require("./src/app");
-
-const server = app.listen(3055, () => {
-    console.log(`Server is running on port ${3055}`);
+const {app:{port}} = require('./src/configs/config.mongodb')
+const PORT =   port || 3058
+const server = app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 })
  
 process.on('SIGINT', ()=>{

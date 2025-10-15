@@ -1,7 +1,7 @@
 'use strict'
 const mongoose = require('mongoose');
-
-const connectString = `mongodb://localhost:27017/`;
+const{db:{host, name, port}} = require('../configs/config.mongodb')
+const connectString = `mongodb://${host}:${port}/${name}`;
 
 const checkCount  = require('../helpers/check.connect')
 
@@ -20,7 +20,7 @@ class Database{
             mongoose.set('debug', true) //còn này thì là debug mod
             mongoose.set('debug',{color : true} ) //thêm màu sắc cho debug
         }
-        mongoose.connect( connectString, {
+        mongoose.connect( connectString, {    //PoolSize cho 50 pool cho mỗi client 
             maxPoolSize : 50
         }).then(_ => {
             console.log(`Connected to MongoDB`)
