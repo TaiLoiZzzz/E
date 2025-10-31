@@ -15,12 +15,8 @@ app.use(compression());
 require('./db/init.mongodb')
 const check  = require('./helpers/check.connect')
 check.checkOverload()
-//init route
-app.get('/', (req,res,next) =>{
-    return res.status(200).json({
-        message: "Helo World   "
-    })
-})
-//handeleror
+
+
+app.use("/",require("./router"))//handeleror
 
 module.exports = app

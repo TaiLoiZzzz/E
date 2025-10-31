@@ -1,0 +1,20 @@
+'use strict'
+
+class AccessController{
+
+    signUp = async (req,res,next)=>{
+             try {
+                console.log("[P] ::signUp::: ", req.body)
+                return set.status(201).json({
+                    code:'2001',
+                    metadata:{userid:1},
+                    message:'Signup success'
+
+                })
+             }catch(error) {
+                next(error)
+            }
+        }
+}
+
+module.exports = new AccessController()
