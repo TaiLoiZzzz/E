@@ -40,4 +40,4 @@ collection: COLLECTION_NAME
 })
 
 
-model.exports = model(DOCUMENT_NAME, shopSchema)
+module.exports = model(DOCUMENT_NAME, shopSchema)

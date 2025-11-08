@@ -7,7 +7,9 @@ require('dotenv').config()
 const app = express()
 
 
-//init middlexwares
+//init middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(helmet());
 app.use(compression()); 
