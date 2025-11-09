@@ -10,6 +10,7 @@ const RoleShop = {
     
 
 }
+//service access la  cac login loguot  signup signout 
 class AccessService{     
 
      static signUp = async({name, email, password}) =>{
